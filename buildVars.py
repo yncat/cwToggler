@@ -23,7 +23,7 @@ addon_info = {
 	# Author(s)
 	"addon_author" : u"Yukio Nozawa <personal@nyanchangames.com>",
 	# URL for the add-on documentation support
-	"addon_url" : None,
+	"addon_url" : "https://github.com/yncat/cwToggler",
 	# Documentation file name
 	"addon_docFileName" : "readme.html",
 	# Minimum NVDA version supported *e.g. "2018.3")
