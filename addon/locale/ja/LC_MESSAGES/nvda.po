@@ -1,0 +1,32 @@
+# cwToggler i18n
+# Copyright (C) 2018 yncat
+# This file is distributed under the same license as the cwToggler package.
+# FIRST AUTHOR <personal@nyanchangames.com>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: cwToggler 1.0\n"
+"Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
+"POT-Creation-Date: 2018-10-09 21:18+0900\n"
+"PO-Revision-Date: 2018-10-09 21:09+0900\n"
+"Last-Translator: Yukio Nozawa <personal@nyanchangames.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on to be shown on installation and add-on information.
+#: buildVars.py:17
+msgid "Character / word readout toggler"
+msgstr "Character / word readout toggler"
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#: buildVars.py:20
+msgid ""
+"Automatically switches character / word readouts based on the currently "
+"focused control."
+msgstr "現在フォーカスしているコントロールに応じて、入力文字の読み上げ / 入力単語の読み上げ　を自動的に切り替えます。"
