@@ -23,3 +23,7 @@ run `scons` to repackage
   
 ## Requests welcomed  
 i18n, optimizations, suggestions, bug reports, impressions, ETC  
+  
+## changelog  
+1.02: Minor code optimization. Added controlTypes.ROLE_DOCUMENT. Added license.  
+1.01: Added controlTypes.ROLE_RICHEDIT and controlTypes.ROLE_PASSWORDEDIT.  
