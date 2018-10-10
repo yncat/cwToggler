@@ -31,7 +31,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 # Examines the role of focused control and performs required action
 	def doCheck(self,obj):
 		self.previousRole=obj.role
-		if obj.role==controlTypes.ROLE_EDITABLETEXT or obj.role==controlTypes.ROLE_TERMINAL:# Enable it
+		if obj.role==controlTypes.ROLE_EDITABLETEXT or obj.role==controlTypes.ROLE_TERMINAL or obj.role==controlTypes.ROLE_RICHEDIT or obj.role==controlTypes.ROLE_TEXTFRAME or obj.role==controlTypes.ROLE_PASSWORDEDIT:# Enable it
 			self.enabled=True
 			if self.isFirstRun: self.fetchSettings() # Fired when NVDA first focused on an edit box after startup
 			config.conf["keyboard"]["speakTypedCharacters"]=self.enableCharacterReadout
