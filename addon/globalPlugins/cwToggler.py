@@ -8,15 +8,25 @@ import globalPluginHandler
 import eventHandler
 import controlTypes
 
+#These variables had to be out of the main class since GlobalPlugin class method was not called by pre_configSave callback. I don't know why.
+# Cach of the global settings (supposed to be updated dynamically as user changes them from the settings panel).
+enableCharacterReadout=None
+enableWordReadout=None
+
+def onPreConfigSave(args=None):# Reverts the settings(had to be out of the GlobalPlugin class)
+	f=open("D:/settingsavd.txt","w")
+	f.write("OK")
+	f.close()
+	config.conf["keyboard"]["speakTypedCharacters"]=enableCharacterReadout
+	config.conf["keyboard"]["speakTypedWords"]=enableWordReadout
+
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	previousRole=controlTypes.ROLE_UNKNOWN#Role of the last focused control
 	enabled=False#True when NVDA is focusing on an edit control and this addon is enabled (means unmasking the user settings)
-	# Cach of the global settings (supposed to be updated dynamically as user changes them from the settings panel).
-	enableCharacterReadout=None
-	enableWordReadout=None
 
 	def __init__(self):
 		super(GlobalPlugin, self).__init__()
+		config.pre_configSave.register(onPreConfigSave)
 		self.fetchSettings()
 		# It starts with "disabled" status. When NVDA finds an editable control, it will fire the event after constructor calling
 		config.conf["keyboard"]["speakTypedCharacters"]=False
@@ -24,11 +34,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 #Creates the recent cach of the user settings
 	def fetchSettings(self):
-		self.enableCharacterReadout=config.conf["keyboard"]["speakTypedCharacters"]
-		self.enableWordReadout=config.conf["keyboard"]["speakTypedWords"]
+		global enableCharacterReadout, enableWordReadout
+		enableCharacterReadout=config.conf["keyboard"]["speakTypedCharacters"]
+		enableWordReadout=config.conf["keyboard"]["speakTypedWords"]
 		# Defaults when not present
-		if self.enableCharacterReadout is None: self.enableCharacterReadout=True
-		if self.enableWordReadout is None: self.enableWordReadout=False
+		if enableCharacterReadout is None: enableCharacterReadout=True
+		if enableWordReadout is None: enableWordReadout=False
 
 # Event listener
 	def event_gainFocus(self, obj, nextHandler):
@@ -40,14 +51,11 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		self.previousRole=obj.role
 		if obj.role in (controlTypes.ROLE_EDITABLETEXT, controlTypes.ROLE_TERMINAL, controlTypes.ROLE_RICHEDIT, controlTypes.ROLE_TEXTFRAME, controlTypes.ROLE_PASSWORDEDIT, controlTypes.ROLE_DOCUMENT):# Enable it
 			self.enabled=True
-			config.conf["keyboard"]["speakTypedCharacters"]=self.enableCharacterReadout
-			config.conf["keyboard"]["speakTypedWords"]=self.enableWordReadout
+			config.conf["keyboard"]["speakTypedCharacters"]=enableCharacterReadout
+			config.conf["keyboard"]["speakTypedWords"]=enableWordReadout
 		elif self.enabled:# Disable it
 			self.enabled=False
 			self.fetchSettings()
 			config.conf["keyboard"]["speakTypedCharacters"]=False
 			config.conf["keyboard"]["speakTypedWords"]=False
 
-	def terminate(self):# Reverts the settings
-			config.conf["keyboard"]["speakTypedCharacters"]=self.enableCharacterReadout
-			config.conf["keyboard"]["speakTypedWords"]=self.enableWordReadout

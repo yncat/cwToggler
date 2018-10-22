@@ -25,5 +25,6 @@ run `scons` to repackage
 i18n, optimizations, suggestions, bug reports, impressions, ETC  
   
 ## changelog  
+1.03: Uses extensionPoints instead of terminate method for reverting user config.
 1.02: Minor code optimization. Added controlTypes.ROLE_DOCUMENT. Added license.  
 1.01: Added controlTypes.ROLE_RICHEDIT and controlTypes.ROLE_PASSWORDEDIT.  
