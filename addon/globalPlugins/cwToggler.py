@@ -14,9 +14,6 @@ enableCharacterReadout=None
 enableWordReadout=None
 
 def onPreConfigSave(args=None):# Reverts the settings(had to be out of the GlobalPlugin class)
-	f=open("D:/settingsavd.txt","w")
-	f.write("OK")
-	f.close()
 	config.conf["keyboard"]["speakTypedCharacters"]=enableCharacterReadout
 	config.conf["keyboard"]["speakTypedWords"]=enableWordReadout
 
