@@ -7,6 +7,8 @@ import config
 import globalPluginHandler
 import eventHandler
 import controlTypes
+from globalCommands import commands
+from scriptHandler import executeScript
 
 #These variables had to be out of the main class since GlobalPlugin class method was not called by pre_configSave callback. I don't know why.
 # Cach of the global settings (supposed to be updated dynamically as user changes them from the settings panel).
@@ -56,3 +58,15 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			config.conf["keyboard"]["speakTypedCharacters"]=False
 			config.conf["keyboard"]["speakTypedWords"]=False
 
+	def script_extendedToggleC(self,gesture):
+		executeScript(commands.script_toggleSpeakTypedCharacters, gesture)
+		self.fetchSettings()
+
+	def script_extendedToggleW(self,gesture):
+		executeScript(commands.script_toggleSpeakTypedWords, gesture)
+		self.fetchSettings()
+
+	__gestures = {
+		"kb:NVDA+2": "extendedToggleC",
+		"kb:NVDA+3": "extendedToggleW",
+	}
