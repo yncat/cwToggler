@@ -7,24 +7,9 @@ This add-on retrieves your "speak typed words" and "speak typed characters" sett
 ## Usage  
 prebuilt package: https://www.nyanchangames.com/softs/count/download.php?download=9  
 Or do `scons` to build for yourself  
-Install and feel the usefulness.  
-  
-## TODO  
-* Code optimization  
-  
-## Localizing  
-Use the included cwToggler.pot. Make sure you save the file in UTF-8 without BOM.  
-  
-# Translating  
-Run `scons pot`  
-Edit the generated pot file (make sure you save the file in UTF-8 without BOM)  
-Move and rename it as addon/locale/<YOUR_LANGUAGE_IDENTIFIER>/LC_MESSAGES/nvda.po  
-run `scons` to repackage  
-  
-## Requests welcomed  
-i18n, optimizations, suggestions, bug reports, impressions, ETC  
-  
-## changelog  
-1.03: Uses extensionPoints instead of terminate method for reverting user config.
-1.02: Minor code optimization. Added controlTypes.ROLE_DOCUMENT. Added license.  
-1.01: Added controlTypes.ROLE_RICHEDIT and controlTypes.ROLE_PASSWORDEDIT.  
+
+#Notes  
+If you install this addon, you can no longer change "speak typed characters" and "speak typed words" settings from NVDA's global configuration dialog. Even if you do so, the changes will be overwritten by CwToggler. Other settings are kept intact.
+Instead, CwToggler detects NVDA+2 and NVDA+3 shortcuts respectively. The commands will behave exactly same as previous, but cwToggler is able to update the settings correctly in this way.  
+
+

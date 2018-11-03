@@ -19,7 +19,7 @@ addon_info = {
 	# Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 	"addon_description" : _("""Automatically switches character / word readouts based on the currently focused control."""),
 	# version
-	"addon_version" : "1.03",
+	"addon_version" : "1.04",
 	# Author(s)
 	"addon_author" : u"Yukio Nozawa <personal@nyanchangames.com>",
 	# URL for the add-on documentation support
