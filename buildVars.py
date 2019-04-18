@@ -20,7 +20,6 @@ addon_info = {
 	"addon_description" : _("""Automatically switches character / word readouts based on the currently focused control."""),
 	# version
 	"addon_version" : "1.04",
-
 	# Author(s)
 	"addon_author" : u"Yukio Nozawa <personal@nyanchangames.com>",
 	# URL for the add-on documentation support
