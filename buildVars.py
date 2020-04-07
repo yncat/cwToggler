@@ -19,7 +19,7 @@ addon_info = {
 	# Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 	"addon_description" : _("""Automatically switches character / word readouts based on the currently focused control."""),
 	# version
-	"addon_version" : "1.04",
+	"addon_version" : "1.05",
 	# Author(s)
 	"addon_author" : u"Yukio Nozawa <personal@nyanchangames.com>",
 	# URL for the add-on documentation support
@@ -29,7 +29,7 @@ addon_info = {
 	# Minimum NVDA version supported *e.g. "2018.3")
 	"addon_minimumNVDAVersion" : "2019.1",
 	# Last NVDA version supported/tested (e.g. "2018.4.0", ideally more recent than minimum version)
-	"addon_lastTestedNVDAVersion" : "2019.1.1",
+	"addon_lastTestedNVDAVersion" : "2019.3",
 
 	# Add-on update channel (default is stable or None)
 	"addon_updateChannel" : None,
